@@ -14,7 +14,7 @@ import lombok.Data;
 
 
 @Data
-//@Validated
+@Validated
 @ConfigurationProperties(prefix = "application.file.watch")
 class FileWatcherProperties{
     /** 
