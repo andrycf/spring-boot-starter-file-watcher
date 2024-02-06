@@ -14,12 +14,14 @@ import org.springframework.context.annotation.Import;
 
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @ConditionalOnBean(FileWatcherListener.class)
 @EnableConfigurationProperties(FileWatcherProperties.class)
 @Import(FileWatcherRunner.class)
 @RequiredArgsConstructor
+@Slf4j
 class FileWatcherAutoConfiguration {
 
     private final FileWatcherProperties props;
@@ -46,6 +48,7 @@ class FileWatcherAutoConfiguration {
     private File ofSourceDirectory(){
         File sourceDirectory = Path.of(props.getDirectory()).toFile();
         if(!sourceDirectory.exists()) sourceDirectory.mkdirs();
+        log.info("Using directory '{}' for watching the files.",sourceDirectory.getAbsolutePath());
         return sourceDirectory;
     }
 }
