@@ -24,20 +24,26 @@ Maven:
 
 Use interface FileWatcherListener:
 
-```xml
+```java
 @Component
 public class ExempleFileWatcherListenerImpl implements FileWatcherListener {
-    ...
     
     @Override
     public void onChange(File file, FIleWatcherType type) {
-        ...
         if(type == FileWatcherType.ADD) {
             // TODO ...
         }
     }
 
-    ...
 }
+```
+
+## Properties
+```properties
+application.file.watch.daemon=true
+application.file.watch.poll-interval=1000
+application.file.watch.quiet-period=400
+application.file.watch.types=add,delete,modify
+application.file.watch.directory=/folder
 ```
 
