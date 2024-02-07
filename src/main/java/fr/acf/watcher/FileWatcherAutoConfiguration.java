@@ -4,19 +4,19 @@ import java.io.File;
 import java.nio.file.Path;
 import java.time.Duration;
 
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.devtools.filewatch.FileChangeListener;
 import org.springframework.boot.devtools.filewatch.FileSystemWatcher;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@Configuration
+@AutoConfiguration
 @ConditionalOnBean(FileWatcherListener.class)
 @EnableConfigurationProperties(FileWatcherProperties.class)
 @Import(FileWatcherRunner.class)

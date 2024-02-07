@@ -33,7 +33,9 @@ class FileWatcherRunner  implements FileChangeListener{
                     !isLocked(changedFile.getFile().toPath())
                 ){
                     File file = changedFile.getFile();
-                    fileWatcherListeners.forEach(fileWatcherListener -> fileWatcherListener.onChange(file,FIleWatcherType.valueOf(changedFile.getType().name())));
+                    fileWatcherListeners
+                    .stream().filter(fileWatcherListener -> fileWatcherListener.filterByFilename(file.getName()))
+                    .forEach(fileWatcherListener -> fileWatcherListener.onChange(file,FIleWatcherType.valueOf(changedFile.getType().name())));
                 }
             }
         }
