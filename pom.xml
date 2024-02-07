@@ -23,7 +23,7 @@
 		<repository>
 			<id>github</id>
 			<name>Spring Boot Starter For File Watcher</name>
-			<url>https://github.com/andrycf/spring-boot-starter-file-watcher</url>
+			<url>https://maven.pkg.github.com/andrycf/spring-boot-starter-file-watcher</url>
 		</repository>
 	</distributionManagement>
 
