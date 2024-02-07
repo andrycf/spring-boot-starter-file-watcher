@@ -6,6 +6,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.boot.devtools.filewatch.ChangedFile;
@@ -21,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 class FileWatcherRunner  implements FileChangeListener{
 
     final FileWatcherProperties fileWatcherProperties;
-    final FileWatcherListener fileWatcherListener;
+    final List<FileWatcherListener> fileWatcherListeners;
 
     @Override
     public void onChange(Set<ChangedFiles> changeSet) {
@@ -32,7 +33,7 @@ class FileWatcherRunner  implements FileChangeListener{
                     !isLocked(changedFile.getFile().toPath())
                 ){
                     File file = changedFile.getFile();
-                    fileWatcherListener.onChange(file,FIleWatcherType.valueOf(changedFile.getType().name()));
+                    fileWatcherListeners.forEach(fileWatcherListener -> fileWatcherListener.onChange(file,FIleWatcherType.valueOf(changedFile.getType().name())));
                 }
             }
         }
