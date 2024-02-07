@@ -13,10 +13,20 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-starter-file-watcher</name>
 	<description>Demo project for Spring Boot</description>
+
 	<properties>
 		<java.version>21</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>Spring Boot Starter For File Watcher</name>
+			<url>https://github.com/andrycf/spring-boot-starter-file-watcher</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
