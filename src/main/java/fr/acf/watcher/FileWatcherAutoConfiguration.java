@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @AutoConfiguration
 @ConditionalOnBean({FileWatcherListener.class})
 @EnableConfigurationProperties(FileWatcherProperties.class)
-@Import(FileWatcherRunner.class)
+@Import({FileWatcherRunner.class})
 @RequiredArgsConstructor
 @Slf4j
 class FileWatcherAutoConfiguration {

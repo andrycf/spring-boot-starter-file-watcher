@@ -75,6 +75,15 @@ class FileWatcherRunnerTest {
         });
     }
 
+    @Test
+    void whenNotFoundBeanForFileWatcherListener(){
+        applicationContextRunner
+        .withUserConfiguration(FileWatcherAutoConfiguration.class)
+        .run(context -> {
+            assertFalse(context.containsBean("fileSystemWatcher"));
+        });
+    }
+
     private File createNewFile(String filename) throws IOException{
         var file = new File(DIRECTORY,"file.txt");
         file.createNewFile();
