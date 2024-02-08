@@ -13,13 +13,15 @@ import org.springframework.boot.devtools.filewatch.ChangedFile;
 import org.springframework.boot.devtools.filewatch.ChangedFiles;
 import org.springframework.boot.devtools.filewatch.FileChangeListener;
 import org.springframework.boot.devtools.filewatch.ChangedFile.Type;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-class FileWatcherRunner  implements FileChangeListener{
+@Primary
+final class FileWatcherRunner  implements FileChangeListener{
 
     final FileWatcherProperties fileWatcherProperties;
     final List<FileWatcherListener> fileWatcherListeners;
