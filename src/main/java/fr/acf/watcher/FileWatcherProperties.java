@@ -37,7 +37,7 @@ class FileWatcherProperties{
      * And the change will be trigger/propagated after quietPeriod ms.
      */
     @NotEmpty
-    private String directory;
+    private List<String> directories;
     /**
      * The single file is of type ChangedFile which provides access to the File and Type of the change/event.
      */
@@ -48,13 +48,13 @@ class FileWatcherProperties{
         @DefaultValue("true") boolean daemon, 
         @DefaultValue("1000") Long pollInterval, 
         @DefaultValue("400") Long quietPeriod,
-        String directory, 
+        List<String> directories, 
         @DefaultValue("add,delete,modify") List<Type> types) {
 
         this.daemon = daemon;
         this.pollInterval = pollInterval;
         this.quietPeriod = quietPeriod;
-        this.directory = directory;
+        this.directories = directories;
         this.types = types;
     }
 }
